@@ -1,5 +1,9 @@
 <div up-main="modal" class="p-4">
-  <form method="post" up-submit up-target="#list-content">
+  <form 
+    method="post"
+    up-submit
+    up-target="#list-content"
+    up-layer="parent">
     {% csrf_token %}
     {{ form.as_p }}
 
