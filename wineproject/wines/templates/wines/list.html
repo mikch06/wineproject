@@ -33,9 +33,9 @@
             <td>{{ wine.region }}</td>
             <td>{{ wine.grape }}</td>
             <td>
-              <a up-layer="new modal" up-href="{% url 'wine_detail' wine.pk %}">
+              <button up-layer="new modal" up-href="{% url 'wine_detail' wine.pk %}">
                 Details
-              </a>
+              </button>
             </td>
           </tr>
           {% empty %}

@@ -4,11 +4,11 @@
   <p><strong>Rebsorte:</strong> {{ wine.grape }}</p>
   <p><strong>Notizen:</strong> {{ wine.notes|linebreaksbr }}</p>
 
-  <a 
+  <button
     up-target=".up-modal-content"
     up-href="{% url 'wine_edit' wine.pk %}">
     ✏️ Bearbeiten
-  </a>
+</button>
 
   <button up-dismiss>Schließen</button>
 </div>
