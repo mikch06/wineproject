@@ -44,5 +44,14 @@
         </tbody>
       </table>
     </main>
+
+    <!-- Optional: Modal schließen → Liste reload -->
+    <script>
+      up.on('up:layer:closed', function(event) {
+        if (event.layer.mode === 'modal') {
+          up.reload('#list-content');
+        }
+      });
+    </script>
   </body>
 </html>
