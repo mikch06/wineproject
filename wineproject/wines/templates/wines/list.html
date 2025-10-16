@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8">
+    <title>Weindatenbank</title>
+    <link rel="stylesheet" href="https://unpkg.com/unpoly@3.6.0/unpoly.min.css">
+    <script src="https://unpkg.com/unpoly@3.6.0/unpoly.min.js"></script>
+  </head>
+  <body>
+    <!-- up-main definiert den Hauptbereich, den Unpoly ersetzen darf -->
+    <main up-main id="list-content" up-hungry>
+      <h2>Weine</h2>
+
+      <a up-layer="new modal" up-href="{% url 'wine_new' %}">
+        ➕ Neuer Wein
+      </a>
+
+      <table border="1" cellpadding="6">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Jahr</th>
+            <th>Region</th>
+            <th>Rebsorte</th>
+            <th>Aktion</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for wine in wines %}
+          <tr>
+            <td>{{ wine.name }}</td>
+            <td>{{ wine.year }}</td>
+            <td>{{ wine.region }}</td>
+            <td>{{ wine.grape }}</td>
+            <td>
+              <a up-layer="new modal" up-href="{% url 'wine_detail' wine.pk %}">
+                Details
+              </a>
+            </td>
+          </tr>
+          {% empty %}
+          <tr><td colspan="5">Keine Weine vorhanden.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </main>
+  </body>
+</html>
